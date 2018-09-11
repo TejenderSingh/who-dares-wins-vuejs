@@ -34,7 +34,7 @@
                     {{ props.row.email }}
                 </b-table-column>
 
-                <b-table-column field="created" label="Last Name">
+                <b-table-column field="created" label="Created">
                     {{ props.row.created }}
                 </b-table-column>
 
