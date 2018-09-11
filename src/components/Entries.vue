@@ -89,6 +89,7 @@ export default {
           label: 'Created'
         }
       ],
+      isEmpty: false,
       isActive: true,
       delItem: '',
       winner: '',
