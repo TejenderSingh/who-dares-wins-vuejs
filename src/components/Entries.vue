@@ -26,7 +26,7 @@
             :data="isEmpty ? [] : data"
             >
             <template slot-scope="props">
-                <b-table-column field="name" label="name">
+                <b-table-column field="name" label="Name">
                     {{ props.row.name }}
                 </b-table-column>
 
