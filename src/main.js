@@ -6,9 +6,11 @@ import 'buefy/lib/buefy.css'
 import VueFire from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import VeeValidate from 'vee-validate'
 
 Vue.use(VueFire)
 Vue.use(Buefy)
+Vue.use(VeeValidate)
 Vue.config.productionTip = false
 
 // Initialize Firebase

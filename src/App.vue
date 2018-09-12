@@ -16,9 +16,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Montserrat');
 html {
   margin: 0;
-  height: 100%;
+  height: 100vh;
 }
 body {
   background-color: #ecf0f1;
@@ -27,7 +28,7 @@ body {
   justify-content: center;
 }
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 55%;

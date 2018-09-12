@@ -10,6 +10,7 @@
   "dependencies": {
     "buefy": "^0.6.6",
     "firebase": "^5.4.2",
+    "vee-validate": "^2.1.0-beta.9",
     "vue": "^2.5.17",
     "vuefire": "^2.0.0-alpha.15"
   },

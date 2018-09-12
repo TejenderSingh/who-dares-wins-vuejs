@@ -2,18 +2,25 @@
   <section>
     <transition name="fade">
       <div v-show="isActive">
+        <h1 class="title">Who Dares Wins!</h1>
         <h2 class="title is-4">Enter your name and email to go in the draw</h2>
         <form @submit.prevent="addEntry(name, email)">
-          <b-field label="Name">
+          <b-field label="Name" :type="errors.has('name') ? 'is-danger' : ''"
+            :message="errors.has('name') ? errors.first('name') : '' ">
               <b-input
                 placeholder="Name"
+                name="name"
                 ref="nameInput"
+                v-validate="'required|min:2|alpha'"
                 v-model="name">
               </b-input>
           </b-field>
-          <b-field label="Email">
+          <b-field label="Email" :type="errors.has('email') ? 'is-danger' : ''"
+            :message="errors.has('name') ? errors.first('name') : ''">
               <b-input type="email"
                 placeholder="Email"
+                name="email"
+                v-validate="'required|email'"
                 v-model="email"
                 @keypress.enter="setFocus()"
                 maxlength="30">
@@ -104,18 +111,29 @@ export default {
   },
   methods: {
     addEntry(name, email) {
-      const d = new Date();
-      const created = d.toLocaleString(['en-gb'], {
-        month: 'short',
-        day: '2-digit',
-        year: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      db.collection('data').add({ name, email, created })
-      this.name = ''
-      this.email = ''
+      this.$validator.validate().then((result) => {
+        if(result) {
+          const d = new Date();
+          const created = d.toLocaleString(['en-gb'], {
+            month: 'short',
+            day: '2-digit',
+            year: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+          db.collection('data').add({ name, email, created })
+          this.name = ''
+          this.email = ''
+        } else {
+            this.$toast.open( {
+              duration: 5000,
+              message: `Please enter a valid Name and Email`,
+              position:'is-bottom',
+              type: 'is-danger'
+            })
+        }
+      })
     },
     setFocus() {
       this.$refs.nameInput.focus()
@@ -139,8 +157,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h2.title {
+h1.title {
   margin-top: 2rem;
+  font-family: 'Merriweather', serif;
+}
+h2 {
+  font-family: 'Merriweather', serif;
 }
 form {
   margin-bottom: 2rem;
@@ -157,9 +179,6 @@ form {
 .bounce-leave-active {
   transition: opacity 0s;
 }
-/* .bounce-leave-to {
-  opacity: 0s;
-} */
 @keyframes bounce-in {
   0% {
     transform: scale(0);
