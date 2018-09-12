@@ -28,3 +28,4 @@ npm run lint
 * [Firebase](https://firebase.google.com/) - Database
 * [Buefy](https://buefy.github.io/#/) - UI Components
 * [Vuefire](https://github.com/vuejs/vuefire) -  Firebase bindings for Vue.js
+* [veeValidate](https://baianat.github.io/vee-validate/) -  VeeValidate
