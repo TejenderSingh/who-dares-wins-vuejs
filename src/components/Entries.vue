@@ -16,7 +16,7 @@
               </b-input>
           </b-field>
           <b-field label="Email" :type="errors.has('email') ? 'is-danger' : ''"
-            :message="errors.has('name') ? errors.first('name') : ''">
+            :message="errors.has('email') ? errors.first('email') : ''">
               <b-input type="email"
                 placeholder="Email"
                 name="email"
