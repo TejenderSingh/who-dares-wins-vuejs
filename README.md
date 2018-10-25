@@ -1,6 +1,6 @@
 # who-dares-wins-vue
 
-A web app for picking a random name from the list of entered names. It can be used to choose a winner from a group of people.
+A web app for picking a random winner from the list of entered names. It can be used to choose a winner for a draw.
 
 ## Project setup
 ```
