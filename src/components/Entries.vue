@@ -60,7 +60,7 @@
                 </section>
             </template>
           </b-table>
-        <button class="button is-info" :disabled="!data.length >= 2" @click.once="pickWinner()">Draw !</button>
+        <button class="button is-info" :disabled="!data.length >= 2" @click="pickWinner()">Draw !</button>
         </section>
       </div>
     </transition>
